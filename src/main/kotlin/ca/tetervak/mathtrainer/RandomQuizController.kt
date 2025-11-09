@@ -1,6 +1,6 @@
 package ca.tetervak.mathtrainer
 
-import ca.tetervak.mathtrainer.service.AlgebraQuiz
+import ca.tetervak.mathtrainer.service.RemoteQuiz
 import ca.tetervak.mathtrainer.service.RandomQuizService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -20,7 +20,7 @@ class RandomQuizController(
     @GetMapping("/random-quiz")
     fun getRandomQuiz(
         @RequestParam(value = "number-of-problems", defaultValue = "5") numberOfProblems: Int
-    ): AlgebraQuiz {
+    ): RemoteQuiz {
         logger.info("getRandomQuiz: received GET request")
         logger.info("number-of-problems: $numberOfProblems")
 
@@ -29,7 +29,7 @@ class RandomQuizController(
             throw IllegalArgumentException("number-of-problems must be between 1 and 20")
         }
 
-        val quiz: AlgebraQuiz = randomQuizService.getRandomQuiz(numberOfProblems)
+        val quiz: RemoteQuiz = randomQuizService.getRandomQuiz(numberOfProblems)
         logger.info("generated quiz: quiz.numberOfProblems = ${quiz.numberOfProblems}")
 
         return quiz
