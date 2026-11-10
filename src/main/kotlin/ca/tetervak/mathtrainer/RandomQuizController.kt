@@ -24,9 +24,9 @@ class RandomQuizController(
         logger.info("getRandomQuiz: received GET request")
         logger.info("number-of-problems: $numberOfProblems")
 
-        if (numberOfProblems !in 1..20) {
-            logger.error("number-of-problems must be between 1 and 20")
-            throw IllegalArgumentException("number-of-problems must be between 1 and 20")
+        if (numberOfProblems !in 1..100) {
+            logger.error("number-of-problems must be between 1 and 100")
+            throw IllegalArgumentException("number-of-problems must be between 1 and 100")
         }
 
         val quiz: RemoteQuiz = randomQuizService.getRandomQuiz(numberOfProblems)
