@@ -5,6 +5,7 @@ import ca.tetervak.mathtrainer.service.RandomQuizService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@CrossOrigin(origins = ["http://localhost:3000"])
 class RandomQuizController(
     private val randomQuizService: RandomQuizService
 ) {
